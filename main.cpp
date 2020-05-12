@@ -26,11 +26,13 @@ int main(){
     XMapRaised(dis, main);
     XFlush(dis);
 
-    Atom WM_DELETE_WINDOW = XInternAtom(dis, "WM_DELETE", False);
+    Atom WM_DELETE_WINDOW = XInternAtom(dis, "WM_DELETE_WINDOW", False);
     XSetWMProtocols(dis, main, &WM_DELETE_WINDOW, 1);
 
     XEvent *event_ret;
-        XNextEvent(dis, event_ret);
+    XNextEvent(dis, event_ret);
+
     XCloseDisplay(dis);
+
     return 0;
 }
